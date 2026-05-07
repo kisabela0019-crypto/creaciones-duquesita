@@ -261,7 +261,7 @@ ${p.categoria}
 ${p.descripcion}
 </p>
 
-<p>${formatearPrecio(p.precio)}</p>
+<p class="precio">${formatearPrecio(p.precio)}</p>
 
 <button onclick="agregarAlCarrito(${p.id})">
 Agregar al carrito
