@@ -244,7 +244,7 @@ transform:translateY(0);
   margin-bottom:10px;
 }
 
-.producto p{
+.producto .precio{
   color:var(--color-principal);
   font-size:22px;
   font-weight:bold;
