@@ -401,26 +401,45 @@ document.getElementById("modalPago").style.display = "flex";
 
 const paypalContainer = document.getElementById("paypal-button-container");
 
-paypalContainer.style.display = "block";
+/* LIMPIAR BOTÓN ANTERIOR */
 
 paypalContainer.innerHTML = "";
+
+/* CALCULAR TOTAL */
 
 let total = 0;
 
 carrito.forEach(item => {
+
 total += item.precio * item.cantidad;
+
 });
 
+/* CONVERTIR COP A USD */
+
+const totalUSD = (total / 4000).toFixed(2);
+
+/* RENDER PAYPAL */
+
 paypal.Buttons({
+
+style: {
+layout: 'vertical',
+color: 'blue',
+shape: 'rect',
+label: 'paypal'
+},
 
 createOrder: function(data, actions){
 
 return actions.order.create({
 
 purchase_units: [{
+
 amount: {
-value: (total / 4000).toFixed(2)
+value: totalUSD
 }
+
 }]
 
 });
@@ -438,6 +457,14 @@ vaciarCarrito();
 cerrarModal();
 
 });
+
+},
+
+onError: function(err){
+
+console.error(err);
+
+alert("Error al cargar PayPal");
 
 }
 
