@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Creaciones Duquesita</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="contenedor-principal">
+
+<!-- HEADER -->
+
+<header class="hero">
+
+<div class="header-top">
+
+<img
+src="https://i.imgur.com/mRnhQOv.png"
+class="logo"
+alt="Logo Creaciones Duquesita"
+>
+
+<div>
+
+<h1>Creaciones Duquesita</h1>
+
+<p>Más que un diseño, tu estilo</p>
+
+</div>
+
+</div>
+
+<p class="subtitulo-hero">
+Mocasines modernos, cómodos y elegantes para tu día a día
+</p>
+
+<nav class="categorias-nav">
+
+<button
+onclick="filtrarCategoria('todos', this)"
+class="activo"
+>
+Todos
+</button>
+
+<button onclick="filtrarCategoria('Casual', this)">
+Casual
+</button>
+
+<button onclick="filtrarCategoria('Deportivo', this)">
+Deportivo
+</button>
+
+<button onclick="filtrarCategoria('Formal', this)">
+Formal
+</button>
+
+</nav>
+
+</header>
+
+<!-- CONTENIDO -->
+
+<main class="layout">
+
+<!-- PRODUCTOS -->
+
+<section id="productos" class="productos"></section>
+
+<!-- CARRITO -->
+
+<aside class="carrito">
+
+<h2>🛒 Carrito</h2>
+
+<p class="contador-carrito">
+
+Productos:
+<span id="cantidad-carrito">0</span>
+
+</p>
+
+<ul id="lista-carrito"></ul>
+
+<div class="resumen">
+
+<p>
+
+<strong>Total:</strong>
+
+<span id="total">$0</span>
+
+</p>
+
+</div>
+
+<div class="acciones-carrito">
+
+<button
+class="vaciar"
+onclick="vaciarCarrito()"
+>
+Vaciar
+</button>
+
+<button
+class="finalizar"
+onclick="finalizarCompra()"
+>
+Pagar
+</button>
+
+</div>
+
+<!-- MÉTODOS DE PAGO -->
+
+<div class="pago">
+
+<div class="metodos-pago">
+
+<p>Métodos de pago:</p>
+
+<div class="logos-pago">
+
+<img
+src="https://cdn-icons-png.flaticon.com/512/349/349221.png"
+alt="Tarjeta"
+>
+
+<img
+src="https://cdn-icons-png.flaticon.com/512/174/174861.png"
+alt="PayPal"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</aside>
+
+</main>
+
+<!-- BENEFICIOS -->
+
+<section class="beneficios-section">
+
+<h2>✨ ¿Por qué comprar aquí?</h2>
+
+<div class="beneficios-grid">
+
+<div class="beneficio-card">
+
+<span class="icono-beneficio">💬</span>
+
+<h3>Atención personalizada</h3>
+
+<p>
+Te asesoramos para elegir el zapato perfecto.
+</p>
+
+</div>
+
+<div class="beneficio-card">
+
+<span class="icono-beneficio">🚚</span>
+
+<h3>Envíos a todo Colombia</h3>
+
+<p>
+Con Interrapidísimo rápido y seguro.
+</p>
+
+</div>
+
+<div class="beneficio-card">
+
+<span class="icono-beneficio">👟</span>
+
+<h3>Comodidad garantizada</h3>
+
+<p>
+Ideales para uso diario.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RECOMENDADOS -->
+
+<section class="recomendados-section">
+
+<h2>🌟 Recomendados</h2>
+
+<div id="recomendados" class="recomendados-grid"></div>
+
+</section>
+
+<!-- TOP -->
+
+<section class="ranking-elo">
+
+<h2>🔥 Top de la tienda</h2>
+
+<button onclick="reiniciarElo()">
+Reiniciar ranking
+</button>
+
+<div id="top-elo" class="carrusel-top"></div>
+
+</section>
+
+<!-- DUELO -->
+
+<section class="duelo-section">
+
+<h2>⚔️ Elige tu favorito</h2>
+
+<div id="duelo-container"></div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+📍 Cúcuta - Envíos a todo Colombia
+</p>
+
+<p>
+
+📱 WhatsApp:
+
+<a
+href="https://wa.me/573168293958"
+target="_blank"
+>
++57 316 8293958
+</a>
+
+</p>
+
+<p>
+📸 Instagram: @creaciones_duquesita
+</p>
+
+</footer>
+
+</div>
+
+
+<!-- BOTÓN WHATSAPP -->
+
+<a
+href="https://wa.me/573168293958?text=Hola%20quiero%20información%20sobre%20los%20mocasines"
+target="_blank"
+class="whatsapp-flotante"
+>
+📱 WhatsApp
+</a>
+
+<!-- MODAL PAGO -->
+
+<div id="modalPago" class="modal">
+
+<div class="modal-contenido">
+
+<span
+class="cerrar-modal"
+onclick="cerrarModal()"
+>
+&times;
+</span>
+
+<h2>Finalizar compra</h2>
+
+<p>Selecciona tu método de pago:</p>
+
+<button class="boton-pago">
+💳 Tarjeta de crédito
+</button>
+
+<button class="boton-pago">
+🅿️ PayPal
+</button>
+
+<a
+href="https://wa.me/573168293958"
+target="_blank"
+class="boton-whatsapp-pago"
+>
+📱 Pagar por WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<!-- PAYPAL -->
+
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=COP"></script>
+
+<!-- JS -->
+
+<script src="script.js"></script>
+<!-- CHAT INTEGRADO -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
+rel="stylesheet"
+/>
+
+<script type="module">
+
+import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+createChat({
+
+webhookUrl:
+'https://kisabela0019.app.n8n.cloud/webhook/fb25e8ab-bf4b-4740-a497-d84f3c1920fb/chat',
+
+initialMessages: [
+'¡Hola! 👋',
+'Soy Luisa, asesora virtual de Creaciones Duquesita.'
+],
+
+i18n: {
+en: {
+title: 'Luisa • Creaciones Duquesita',
+subtitle: 'Asesora virtual inteligente',
+footer: '',
+getStarted: 'Nueva conversación',
+inputPlaceholder: 'Escribe tu mensaje...'
+}
+}
+
+});
+
+</script>
+</body>
+</html>
